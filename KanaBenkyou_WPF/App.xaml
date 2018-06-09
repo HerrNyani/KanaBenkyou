@@ -4,6 +4,12 @@
              xmlns:local="clr-namespace:HerrNyani.KanaBenkyou_WPF"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ResourceDictionaries/Styles/DefaultStyle.xaml" />
+                <ResourceDictionary Source="ResourceDictionaries/DataTemplates/ViewModelDataTemplates.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
