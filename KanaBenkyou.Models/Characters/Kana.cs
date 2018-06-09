@@ -17,5 +17,18 @@ namespace HerrNyani.KanaBenkyou.Models.Characters
         public string Romaji { get; }
         public char Vowel { get; }
         public char Consonant { get; }
+
+        public override int GetHashCode()
+        {
+            return Character.GetHashCode();
+        }
+
+        public override bool Equals(object obj)
+        {
+            return ReferenceEquals(this, obj)
+                || obj is Kana kana
+                    && Character.Equals(kana.Character)
+                    && Romaji.Equals(kana.Romaji);
+        }
     }
 }

@@ -10,14 +10,15 @@
         <TextBlock Text="What do you want to do?" Style="{StaticResource TitleTextBlockStyle}" DockPanel.Dock="Top" />
         <TextBlock Text="なにをしたいか。" Style="{StaticResource TitleTextBlockStyle}" DockPanel.Dock="Top" />
 
-        <UniformGrid>
+        <UniformGrid Columns="1">
             <UniformGrid.Resources>
                 <Style TargetType="Button">
                     <Setter Property="FontSize" Value="24" />
                 </Style>
             </UniformGrid.Resources>
 
-            <Button Content="Consult the hiragana chart" Command="{Binding SetHiraganaChartViewModel}" />
+            <Button Content="Consult the hiragana chart." Command="{Binding SetHiraganaChartViewModel}" />
+            <Button Content="Practise converting Romaji to Hiragana." Command="{Binding SetRomajiToHiraganaQuizViewModel}" />
         </UniformGrid>
     </DockPanel>
 </UserControl>

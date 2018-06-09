@@ -4,7 +4,9 @@
                     xmlns:views="clr-namespace:HerrNyani.KanaBenkyou_WPF.UserControls.Views"
                     xmlns:viewmodels="clr-namespace:HerrNyani.KanaBenkyou_WPF.ViewModels"
                     xmlns:consultingViewmodels="clr-namespace:HerrNyani.KanaBenkyou_WPF.ViewModels.Consulting"
-                    xmlns:consultingViews="clr-namespace:HerrNyani.KanaBenkyou_WPF.UserControls.Views.Consulting">
+                    xmlns:practisingViewmodels="clr-namespace:HerrNyani.KanaBenkyou_WPF.ViewModels.Practising"
+                    xmlns:consultingViews="clr-namespace:HerrNyani.KanaBenkyou_WPF.UserControls.Views.Consulting"
+                    xmlns:practisingViews="clr-namespace:HerrNyani.KanaBenkyou_WPF.UserControls.Views.Practising">
 
     <DataTemplate DataType="{x:Type viewmodels:StartPageViewModel}">
         <views:StartPageView />
@@ -12,6 +14,10 @@
 
     <DataTemplate DataType="{x:Type consultingViewmodels:KanaChartViewModel}">
         <consultingViews:KanaChartView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type practisingViewmodels:RomajiToKanaQuizViewModel}">
+        <practisingViews:RomajiToKanaQuizView />
     </DataTemplate>
     
 </ResourceDictionary>

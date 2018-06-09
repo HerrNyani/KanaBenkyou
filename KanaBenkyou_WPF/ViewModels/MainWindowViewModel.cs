@@ -2,6 +2,7 @@
 using Assisticant.Fields;
 using HerrNyani.KanaBenkyou.Models.Characters;
 using HerrNyani.KanaBenkyou_WPF.ViewModels.Consulting;
+using HerrNyani.KanaBenkyou_WPF.ViewModels.Practising;
 
 namespace HerrNyani.KanaBenkyou_WPF.ViewModels
 {
@@ -26,6 +27,11 @@ namespace HerrNyani.KanaBenkyou_WPF.ViewModels
             {
                 ChartTitle = "ひらがな - Hiragana"
             };
+        }
+
+        public void SetRomajiToHiraganaQuizViewModel()
+        {
+            _activeViewModel.Value = new RomajiToKanaQuizViewModel(this, Hiragana.Collection);
         }
 
         public object ActiveViewModel => ForView.Wrap(_activeViewModel.Value);

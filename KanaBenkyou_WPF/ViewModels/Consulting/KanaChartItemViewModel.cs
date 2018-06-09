@@ -72,5 +72,17 @@ namespace HerrNyani.KanaBenkyou_WPF.ViewModels.Consulting
                 }
             }
         }
+
+        public override int GetHashCode()
+        {
+            return _kana.GetHashCode();
+        }
+
+        public override bool Equals(object obj)
+        {
+            return ReferenceEquals(this, obj)
+                || obj is KanaChartItemViewModel itemViewModel
+                    && _kana.Equals(itemViewModel._kana);
+        }
     }
 }
