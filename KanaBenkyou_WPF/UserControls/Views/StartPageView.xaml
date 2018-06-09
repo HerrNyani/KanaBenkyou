@@ -17,9 +17,13 @@
                 </Style>
             </UniformGrid.Resources>
 
-            <Button Content="Consult the hiragana chart." Command="{Binding SetHiraganaChartViewModel}" />
-            <Button Content="Practise converting Romaji to Hiragana." Command="{Binding SetRomajiToHiraganaQuizViewModel}" />
+            <Button Content="Consult the Hiragana chart." Command="{Binding SetHiraganaChartViewModel}" />
+            <Button Content="Translate Romaji to Hiragana." Command="{Binding SetRomajiToHiraganaQuizViewModel}" />
             <Button Content="Practise reading Hiragana." Command="{Binding SetHiraganaToRomajiQuizViewModel}" />
+            <Separator />
+            <Button Content="Consult the Katakana chart." Command="{Binding SetKatakanaChartViewModel}" />
+            <Button Content="Translate Romaji to Katakana." Command="{Binding SetRomajiToKatakanaQuizViewModel}" />
+            <Button Content="Practise reading Katakana." Command="{Binding SetKatakanaToRomajiQuizViewModel}" />
         </UniformGrid>
     </DockPanel>
 </UserControl>

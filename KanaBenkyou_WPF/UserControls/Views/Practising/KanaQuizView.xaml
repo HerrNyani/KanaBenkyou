@@ -71,7 +71,7 @@
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                     <StackPanel Margin="5">
-                        <TextBlock Text="Question:" TextAlignment="Center" />
+                        <TextBlock Text="Translate:" TextAlignment="Center" />
                         <TextBlock Text="{Binding QuestionKana.Romaji}" FontSize="32" Visibility="{Binding RomajiAnswerVisibility}" TextAlignment="Center"  />
                         <TextBlock Text="{Binding QuestionKana.Character}" FontSize="32" Visibility="{Binding KanaAnswerVisibility}" TextAlignment="Center" />
                     </StackPanel>

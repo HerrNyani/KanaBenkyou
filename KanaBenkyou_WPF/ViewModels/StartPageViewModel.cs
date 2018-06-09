@@ -8,26 +8,35 @@
         {
             _mainWindowViewModel = mainWindowViewModel;
         }
-
-        public bool CanSetHiraganaChartViewModel => true;
-
+        
         public void SetHiraganaChartViewModel()
         {
             _mainWindowViewModel.SetHiraganaChartViewModel();
         }
-
-        public bool CanSetRomajiToHiraganaQuizViewModel => true;
-
+        
         public void SetRomajiToHiraganaQuizViewModel()
         {
             _mainWindowViewModel.SetRomajiToHiraganaQuizViewModel();
         }
-
-        public bool CanSetHiraganaToRomajiQuizViewModel => true;
-
+        
         public void SetHiraganaToRomajiQuizViewModel()
         {
             _mainWindowViewModel.SetHiraganaToRomajiQuizViewModel();
+        }
+        
+        public void SetKatakanaChartViewModel()
+        {
+            _mainWindowViewModel.SetKatakanaChartViewModel();
+        }
+        
+        public void SetRomajiToKatakanaQuizViewModel()
+        {
+            _mainWindowViewModel.SetRomajiToKatakanaQuizViewModel();
+        }
+        
+        public void SetKatakanaToRomajiQuizViewModel()
+        {
+            _mainWindowViewModel.SetKatakanaToRomajiQuizViewModel();
         }
     }
 }
