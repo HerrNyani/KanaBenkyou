@@ -9,7 +9,7 @@ using System.Windows.Media;
 
 namespace HerrNyani.KanaBenkyou_WPF.ViewModels.Practising
 {
-    public class RomajiToKanaQuizViewModel
+    public class KanaQuizViewModel
     {
         private readonly Brush _positiveResultBrush = (Brush)new BrushConverter().ConvertFrom("#AAE49C");
         private readonly Brush _negativeResultBrush = (Brush)new BrushConverter().ConvertFrom("#DF7181");
@@ -21,9 +21,11 @@ namespace HerrNyani.KanaBenkyou_WPF.ViewModels.Practising
         private readonly Observable<bool> _canSelectAnswer;
         private readonly Observable<Brush> _backgroundBrush;
 
+        private readonly bool _isKanaToRomajiMode;
+
         private readonly Random _randomGenerator = new Random();
 
-        public RomajiToKanaQuizViewModel(MainWindowViewModel mainWindowViewModel, IEnumerable<Kana> kanaList)
+        public KanaQuizViewModel(MainWindowViewModel mainWindowViewModel, IEnumerable<Kana> kanaList, bool isKanaToRomajiMode)
         {
             _mainWindowViewModel = mainWindowViewModel;
             Kana = kanaList.Select(k => new KanaChartItemViewModel(k)).ToList();
@@ -34,10 +36,12 @@ namespace HerrNyani.KanaBenkyou_WPF.ViewModels.Practising
             _canSelectAnswer = new Observable<bool>();
             _backgroundBrush = new Observable<Brush>();
 
+            _isKanaToRomajiMode = isKanaToRomajiMode;
+
             SetNextQuestion();
         }
 
-        public Brush BackgroundBrush => _backgroundBrush.Value;
+
 
         public IList<KanaChartItemViewModel> Kana { get; }
 
@@ -60,6 +64,20 @@ namespace HerrNyani.KanaBenkyou_WPF.ViewModels.Practising
         public bool CanSelectAnswer => _canSelectAnswer.Value;
 
         public bool CanSetNextQuestion => !CanSelectAnswer;
+
+        public Brush BackgroundBrush => _backgroundBrush.Value;
+
+        public Visibility AnswerButtonRomajiVisibility => _isKanaToRomajiMode ?
+            Visibility.Visible : Visibility.Collapsed;
+
+        public Visibility AnswerButtonKanaVisibility => _isKanaToRomajiMode ?
+            Visibility.Collapsed : Visibility.Visible;
+
+        public Visibility KanaAnswerVisibility => _isKanaToRomajiMode ?
+            Visibility.Visible : AnswerVisibility;
+        
+        public Visibility RomajiAnswerVisibility => _isKanaToRomajiMode ?
+            AnswerVisibility : Visibility.Visible;
 
         public void SetNextQuestion()
         {
@@ -85,14 +103,14 @@ namespace HerrNyani.KanaBenkyou_WPF.ViewModels.Practising
 
         public void VerifyAnswer()
         {
-            if(SelectedKana == null)
+            if (SelectedKana == null)
             {
                 return;
             }
 
             _canSelectAnswer.Value = false;
 
-            _backgroundBrush.Value = QuestionKana.Equals(SelectedKana) ? 
+            _backgroundBrush.Value = QuestionKana.Equals(SelectedKana) ?
                 _positiveResultBrush :
                 _negativeResultBrush;
 

@@ -67,8 +67,8 @@
     <Compile Include="UserControls\Views\Consulting\KanaChartView.xaml.cs">
       <DependentUpon>KanaChartView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Views\Practising\RomajiToKanaQuizView.xaml.cs">
-      <DependentUpon>RomajiToKanaQuizView.xaml</DependentUpon>
+    <Compile Include="UserControls\Views\Practising\KanaQuizView.xaml.cs">
+      <DependentUpon>KanaQuizView.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Views\StartPageView.xaml.cs">
       <DependentUpon>StartPageView.xaml</DependentUpon>
@@ -76,7 +76,7 @@
     <Compile Include="ViewModels\Consulting\KanaChartItemViewModel.cs" />
     <Compile Include="ViewModels\Consulting\KanaChartViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
-    <Compile Include="ViewModels\Practising\RomajiToKanaQuizViewModel.cs" />
+    <Compile Include="ViewModels\Practising\KanaQuizViewModel.cs" />
     <Compile Include="ViewModels\StartPageViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -106,7 +106,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\Views\Practising\RomajiToKanaQuizView.xaml">
+    <Page Include="UserControls\Views\Practising\KanaQuizView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

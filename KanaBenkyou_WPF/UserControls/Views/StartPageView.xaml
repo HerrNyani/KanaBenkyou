@@ -19,6 +19,7 @@
 
             <Button Content="Consult the hiragana chart." Command="{Binding SetHiraganaChartViewModel}" />
             <Button Content="Practise converting Romaji to Hiragana." Command="{Binding SetRomajiToHiraganaQuizViewModel}" />
+            <Button Content="Practise reading Hiragana." Command="{Binding SetHiraganaToRomajiQuizViewModel}" />
         </UniformGrid>
     </DockPanel>
 </UserControl>

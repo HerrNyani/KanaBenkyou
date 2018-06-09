@@ -22,5 +22,12 @@
         {
             _mainWindowViewModel.SetRomajiToHiraganaQuizViewModel();
         }
+
+        public bool CanSetHiraganaToRomajiQuizViewModel => true;
+
+        public void SetHiraganaToRomajiQuizViewModel()
+        {
+            _mainWindowViewModel.SetHiraganaToRomajiQuizViewModel();
+        }
     }
 }

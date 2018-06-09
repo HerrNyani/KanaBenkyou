@@ -16,8 +16,8 @@
         <consultingViews:KanaChartView />
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type practisingViewmodels:RomajiToKanaQuizViewModel}">
-        <practisingViews:RomajiToKanaQuizView />
+    <DataTemplate DataType="{x:Type practisingViewmodels:KanaQuizViewModel}">
+        <practisingViews:KanaQuizView />
     </DataTemplate>
     
 </ResourceDictionary>

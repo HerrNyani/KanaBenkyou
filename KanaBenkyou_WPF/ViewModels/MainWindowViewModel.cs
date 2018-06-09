@@ -31,7 +31,12 @@ namespace HerrNyani.KanaBenkyou_WPF.ViewModels
 
         public void SetRomajiToHiraganaQuizViewModel()
         {
-            _activeViewModel.Value = new RomajiToKanaQuizViewModel(this, Hiragana.Collection);
+            _activeViewModel.Value = new KanaQuizViewModel(this, Hiragana.Collection, false);
+        }
+
+        public void SetHiraganaToRomajiQuizViewModel()
+        {
+            _activeViewModel.Value = new KanaQuizViewModel(this, Hiragana.Collection, true);
         }
 
         public object ActiveViewModel => ForView.Wrap(_activeViewModel.Value);

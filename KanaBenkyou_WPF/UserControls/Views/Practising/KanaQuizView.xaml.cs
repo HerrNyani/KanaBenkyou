@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace HerrNyani.KanaBenkyou_WPF.UserControls.Views.Practising
 {
     /// <summary>
-    /// Interaction logic for RomajiToKanaQuizView.xaml
+    /// Interaction logic for KanaQuizView.xaml
     /// </summary>
-    public partial class RomajiToKanaQuizView : UserControl
+    public partial class KanaQuizView : UserControl
     {
-        public RomajiToKanaQuizView()
+        public KanaQuizView()
         {
             InitializeComponent();
         }
