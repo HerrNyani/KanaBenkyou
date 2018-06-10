@@ -28,4 +28,4 @@ The project follows the [SemVer](http://semver.org/) specification to apply vers
   - [GitHub](https://github.com/HerrNyani)
   
 ## Licensing
-View the [LICENSE.MD](LICENSE.MD) file for details.
+View the [LICENSE.md](LICENSE.md) file for details.
