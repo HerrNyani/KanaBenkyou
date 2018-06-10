@@ -15,11 +15,14 @@ namespace HerrNyani.KanaBenkyou_WPF.ViewModels.Practising
         private readonly Brush _negativeResultBrush = (Brush)new BrushConverter().ConvertFrom("#DF7181");
 
         private readonly MainWindowViewModel _mainWindowViewModel;
-        private readonly Observable<KanaChartItemViewModel> _selectedKanaItemViewModel;
-        private readonly Observable<KanaChartItemViewModel> _questionKanaItemViewModel;
-        private readonly Observable<Visibility> _answerVisibility;
-        private readonly Observable<bool> _canSelectAnswer;
-        private readonly Observable<Brush> _backgroundBrush;
+        private readonly Observable<KanaChartItemViewModel> _selectedKanaItemViewModel = new Observable<KanaChartItemViewModel>();
+        private readonly Observable<KanaChartItemViewModel> _questionKanaItemViewModel = new Observable<KanaChartItemViewModel>();
+
+        private readonly Observable<Visibility> _answerVisibility = new Observable<Visibility>();
+        private readonly Observable<bool> _canSelectAnswer = new Observable<bool>();
+        private readonly Observable<Brush> _backgroundBrush = new Observable<Brush>();
+        private readonly Observable<int> _correctAnswerCount = new Observable<int>(0);
+        private readonly Observable<int> _totalAnswerCount = new Observable<int>(0);
 
         private readonly bool _isKanaToRomajiMode;
 
@@ -29,19 +32,11 @@ namespace HerrNyani.KanaBenkyou_WPF.ViewModels.Practising
         {
             _mainWindowViewModel = mainWindowViewModel;
             Kana = kanaList.Select(k => new KanaChartItemViewModel(k)).ToList();
-
-            _selectedKanaItemViewModel = new Observable<KanaChartItemViewModel>();
-            _questionKanaItemViewModel = new Observable<KanaChartItemViewModel>();
-            _answerVisibility = new Observable<Visibility>();
-            _canSelectAnswer = new Observable<bool>();
-            _backgroundBrush = new Observable<Brush>();
-
+            
             _isKanaToRomajiMode = isKanaToRomajiMode;
 
             SetNextQuestion();
         }
-
-
 
         public IList<KanaChartItemViewModel> Kana { get; }
 
@@ -75,9 +70,15 @@ namespace HerrNyani.KanaBenkyou_WPF.ViewModels.Practising
 
         public Visibility KanaAnswerVisibility => _isKanaToRomajiMode ?
             Visibility.Visible : AnswerVisibility;
-        
+
         public Visibility RomajiAnswerVisibility => _isKanaToRomajiMode ?
             AnswerVisibility : Visibility.Visible;
+
+        public int CorrectAnswerCount => _correctAnswerCount.Value;
+        public int TotalAnswerCount => _totalAnswerCount.Value;
+        public double CorrectPercentage => TotalAnswerCount == 0 ? 
+            0 : 
+            (double)CorrectAnswerCount / (double)TotalAnswerCount * 100.0;
 
         public void SetNextQuestion()
         {
@@ -109,10 +110,17 @@ namespace HerrNyani.KanaBenkyou_WPF.ViewModels.Practising
             }
 
             _canSelectAnswer.Value = false;
+            _totalAnswerCount.Value += 1;
 
-            _backgroundBrush.Value = QuestionKana.Equals(SelectedKana) ?
-                _positiveResultBrush :
-                _negativeResultBrush;
+            if(QuestionKana.Equals(SelectedKana))
+            {
+                _correctAnswerCount.Value += 1;
+                _backgroundBrush.Value = _positiveResultBrush;
+            }
+            else
+            {
+                _backgroundBrush.Value = _negativeResultBrush;
+            }
 
             _answerVisibility.Value = Visibility.Visible;
         }

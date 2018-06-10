@@ -6,76 +6,89 @@
              xmlns:local="clr-namespace:HerrNyani.KanaBenkyou_WPF.UserControls.Views.Practising"
              mc:Ignorable="d" Name="ThisUserControl"
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="{Binding BackgroundBrush}">
+    <DockPanel Background="{Binding BackgroundBrush}">
+        <Grid DockPanel.Dock="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            
+            <Button Content="Back to start page" Command="{Binding ReturnToStartPage}" Grid.Column="0" />
+
+            <ListView ItemsSource="{Binding Kana}" SelectedItem="{Binding SelectedKana}"
+                      IsEnabled="{Binding CanSelectAnswer}" HorizontalAlignment="Center"
+                      Grid.Column="1">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemContainerStyle>
+                    <Style>
+                        <Setter Property="Grid.Row" Value="{Binding GridRowIndex}" />
+                        <Setter Property="Grid.Column" Value="{Binding GridColumnIndex}" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Width="60">
+                            <TextBlock Text="{Binding Character}" TextAlignment="Center" FontSize="40" Visibility="{Binding ElementName=ThisUserControl, Path=DataContext.AnswerButtonKanaVisibility}" />
+                            <TextBlock Text="{Binding Romaji}" TextAlignment="Center" FontSize="32" Visibility="{Binding ElementName=ThisUserControl, Path=DataContext.AnswerButtonRomajiVisibility}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+            <UniformGrid Columns="1" Grid.Column="2" >
+                <Button Content="Confirm answer" Command="{Binding VerifyAnswer}" />
+                <Button Content="Next question" Command="{Binding SetNextQuestion}" />
+            </UniformGrid>
+        </Grid>
+
         <DockPanel>
-            <Grid DockPanel.Dock="Bottom">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="1*"/>
-                </Grid.ColumnDefinitions>
-
-                <Button Content="Back to start page" Command="{Binding ReturnToStartPage}" Grid.Column="0" />
-                <Button Content="Next question" Command="{Binding SetNextQuestion}" Grid.Column="2" />
-
-                <DockPanel Grid.Column="1">
-                    <Button Content="Confirm answer" Command="{Binding VerifyAnswer}" DockPanel.Dock="Bottom" Height="50" />
-
-                    <ListView ItemsSource="{Binding Kana}" SelectedItem="{Binding SelectedKana}" 
-                          IsEnabled="{Binding CanSelectAnswer}" HorizontalAlignment="Center" >
-                        <ListView.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="auto" />
-                                        <RowDefinition Height="auto" />
-                                        <RowDefinition Height="auto" />
-                                        <RowDefinition Height="auto" />
-                                        <RowDefinition Height="auto" />
-                                        <RowDefinition Height="auto" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="auto" />
-                                        <ColumnDefinition Width="auto" />
-                                        <ColumnDefinition Width="auto" />
-                                        <ColumnDefinition Width="auto" />
-                                        <ColumnDefinition Width="auto" />
-                                        <ColumnDefinition Width="auto" />
-                                        <ColumnDefinition Width="auto" />
-                                        <ColumnDefinition Width="auto" />
-                                        <ColumnDefinition Width="auto" />
-                                        <ColumnDefinition Width="auto" />
-                                    </Grid.ColumnDefinitions>
-                                </Grid>
-                            </ItemsPanelTemplate>
-                        </ListView.ItemsPanel>
-                        <ListView.ItemContainerStyle>
-                            <Style>
-                                <Setter Property="Grid.Row" Value="{Binding GridRowIndex}" />
-                                <Setter Property="Grid.Column" Value="{Binding GridColumnIndex}" />
-                            </Style>
-                        </ListView.ItemContainerStyle>
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel>
-                                    <TextBlock Text="{Binding Character}" FontSize="32" Visibility="{Binding ElementName=ThisUserControl, Path=DataContext.AnswerButtonKanaVisibility}" />
-                                    <TextBlock Text="{Binding Romaji}" FontSize="28" Visibility="{Binding ElementName=ThisUserControl, Path=DataContext.AnswerButtonRomajiVisibility}" />
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </DockPanel>
-            </Grid>
-
-
+            <StackPanel DockPanel.Dock="Right">
+                <TextBlock FontSize="20">
+                    <Run Text="Score: " />
+                    <Run Text="{Binding CorrectAnswerCount, Mode=OneWay}" />
+                    <Run Text="/" />
+                    <Run Text="{Binding TotalAnswerCount, Mode=OneWay}" />
+                    <Run Text=" (" />
+                    <Run Text="{Binding CorrectPercentage, Mode=OneWay, StringFormat=F}" />
+                    <Run Text=" %)" />
+                </TextBlock>
+            </StackPanel>
+            
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                    <StackPanel Margin="5">
+                    <StackPanel Margin="20">
                         <TextBlock Text="Translate:" TextAlignment="Center" />
                         <TextBlock Text="{Binding QuestionKana.Romaji}" FontSize="32" Visibility="{Binding RomajiAnswerVisibility}" TextAlignment="Center"  />
                         <TextBlock Text="{Binding QuestionKana.Character}" FontSize="32" Visibility="{Binding KanaAnswerVisibility}" TextAlignment="Center" />
                     </StackPanel>
-                    <StackPanel Margin="5" Visibility="{Binding AnswerVisibility}">
+                    <StackPanel Margin="20" Visibility="{Binding AnswerVisibility}">
                         <TextBlock Text="You answered:" TextAlignment="Center" />
                         <TextBlock Text="{Binding SelectedKana.Romaji}" FontSize="32" TextAlignment="Center"  />
                         <TextBlock Text="{Binding SelectedKana.Character}" FontSize="32" TextAlignment="Center" />
@@ -83,5 +96,5 @@
                 </StackPanel>
             </StackPanel>
         </DockPanel>
-    </Grid>
+    </DockPanel>
 </UserControl>
