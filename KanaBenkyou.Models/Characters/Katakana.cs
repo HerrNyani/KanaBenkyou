@@ -27,11 +27,26 @@ namespace HerrNyani.KanaBenkyou.Models.Characters
             new Kana('メ', "me", 'e', 'm'),
             new Kana('モ', "mo", 'o', 'm'),
 
-            new Kana('ハ', "ha", 'a', 'h'),
-            new Kana('ヒ', "hi", 'i', 'h'),
-            new Kana('フ', "fu", 'u', 'h'),
-            new Kana('ヘ', "he", 'e', 'h'),
-            new Kana('ホ', "ho", 'o', 'h'),
+            new Kana('ハ', "ha", 'a', 'h', new List<KanaPhoneticShift> {
+                new KanaPhoneticShift('ﾞ', 'バ', "ba", 'a', 'b'),
+                new KanaPhoneticShift('ﾟ', 'パ', "pa", 'a', 'p')
+            }),
+            new Kana('ヒ', "hi", 'i', 'h', new List<KanaPhoneticShift> {
+                new KanaPhoneticShift('ﾞ', 'ビ', "bi", 'i', 'b'),
+                new KanaPhoneticShift('ﾟ', 'ピ', "pi", 'i', 'p')
+            }),
+            new Kana('フ', "fu", 'u', 'h', new List<KanaPhoneticShift> {
+                new KanaPhoneticShift('ﾞ', 'ブ', "bu", 'u', 'b'),
+                new KanaPhoneticShift('ﾟ', 'プ', "pu", 'u', 'p')
+            }),
+            new Kana('ヘ', "he", 'e', 'h', new List<KanaPhoneticShift> {
+                new KanaPhoneticShift('ﾞ', 'ベ', "be", 'e', 'b'),
+                new KanaPhoneticShift('ﾟ', 'ペ', "pe", 'e', 'p')
+            }),
+            new Kana('ホ', "ho", 'o', 'h', new List<KanaPhoneticShift> {
+                new KanaPhoneticShift('ﾞ', 'ボ', "bo", 'o', 'b'),
+                new KanaPhoneticShift('ﾟ', 'ポ', "po", 'o', 'p')
+            }),
 
             new Kana('ナ', "na", 'a', 'n'),
             new Kana('ニ', "ni", 'i', 'n'),
@@ -39,23 +54,53 @@ namespace HerrNyani.KanaBenkyou.Models.Characters
             new Kana('ネ', "ne", 'e', 'n'),
             new Kana('ノ', "no", 'o', 'n'),
 
-            new Kana('タ', "ta", 'a', 't'),
-            new Kana('チ', "chi", 'i', 't'),
-            new Kana('ツ', "tsu", 'u', 't'),
-            new Kana('テ', "te", 'e', 't'),
-            new Kana('ト', "to", 'o', 't'),
+            new Kana('タ', "ta", 'a', 't', new List<KanaPhoneticShift>{
+                new KanaPhoneticShift('ﾞ', 'ダ', "da", 'a', 'd'),
+            }),
+            new Kana('チ', "chi", 'i', 't', new List<KanaPhoneticShift>{
+                new KanaPhoneticShift('ﾞ', 'ヂ', "ji", 'i', 'd'),
+            }),
+            new Kana('ツ', "tsu", 'u', 't', new List<KanaPhoneticShift>{
+                new KanaPhoneticShift('ﾞ', 'ヅ', "zu", 'u', 'd'),
+            }),
+            new Kana('テ', "te", 'e', 't', new List<KanaPhoneticShift>{
+                new KanaPhoneticShift('ﾞ', 'デ', "de", 'e', 'd'),
+            }),
+            new Kana('ト', "to", 'o', 't', new List<KanaPhoneticShift>{
+                new KanaPhoneticShift('ﾞ', 'ド', "do", 'o', 'd'),
+            }),
 
-            new Kana('サ', "sa", 'a', 's'),
-            new Kana('シ', "shi", 'i', 's'),
-            new Kana('ス', "su", 'u', 's'),
-            new Kana('セ', "se", 'e', 's'),
-            new Kana('ソ', "so", 'o', 's'),
+            new Kana('サ', "sa", 'a', 's', new List<KanaPhoneticShift>{
+                new KanaPhoneticShift('ﾞ', 'ザ', "za", 'a', 'z'),
+            }),
+            new Kana('シ', "shi", 'i', 's', new List<KanaPhoneticShift>{
+                new KanaPhoneticShift('ﾞ', 'ジ', "ji", 'i', 'z'),
+            }),
+            new Kana('ス', "su", 'u', 's', new List<KanaPhoneticShift>{
+                new KanaPhoneticShift('ﾞ', 'ズ', "zu", 'u', 'z'),
+            }),
+            new Kana('セ', "se", 'e', 's', new List<KanaPhoneticShift>{
+                new KanaPhoneticShift('ﾞ', 'ゼ', "ze", 'e', 'z'),
+            }),
+            new Kana('ソ', "so", 'o', 's', new List<KanaPhoneticShift>{
+                new KanaPhoneticShift('ﾞ', 'ゾ', "zo", 'o', 'z'),
+            }),
 
-            new Kana('カ', "ka", 'a', 'k'),
-            new Kana('キ', "ki", 'i', 'k'),
-            new Kana('ク', "ku", 'u', 'k'),
-            new Kana('ケ', "ke", 'e', 'k'),
-            new Kana('コ', "ko", 'o', 'k'),
+            new Kana('カ', "ka", 'a', 'k', new List<KanaPhoneticShift>{
+                new KanaPhoneticShift('ﾞ', 'ガ', "ga", 'a', 'g'),
+            }),
+            new Kana('キ', "ki", 'i', 'k', new List<KanaPhoneticShift>{
+                new KanaPhoneticShift('ﾞ', 'ギ', "gi", 'i', 'g'),
+            }),
+            new Kana('ク', "ku", 'u', 'k', new List<KanaPhoneticShift>{
+                new KanaPhoneticShift('ﾞ', 'グ', "gu", 'u', 'g'),
+            }),
+            new Kana('ケ', "ke", 'e', 'k', new List<KanaPhoneticShift>{
+                new KanaPhoneticShift('ﾞ', 'ゲ', "ge", 'e', 'g'),
+            }),
+            new Kana('コ', "ko", 'o', 'k', new List<KanaPhoneticShift>{
+                new KanaPhoneticShift('ﾞ', 'ゴ', "go", 'o', 'g'),
+            }),
 
             new Kana('ア', "a", 'a', '\0'),
             new Kana('イ', "i", 'i', '\0'),
