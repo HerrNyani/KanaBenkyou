@@ -8,5 +8,11 @@
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="TextAlignment" Value="Center" />
     </Style>
+    
+    <Style TargetType="TextBlock" x:Key="SubTitleTextBlockStyle">
+        <Setter Property="Margin" Value="3" />
+        <Setter Property="FontSize" Value="26" />
+        <Setter Property="TextAlignment" Value="Center" />
+    </Style>
 
 </ResourceDictionary>

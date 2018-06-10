@@ -4,26 +4,33 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HerrNyani.KanaBenkyou_WPF.UserControls.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <DockPanel>
+             mc:Ignorable="d" >
+    <StackPanel>
+        <StackPanel.Resources>
+            <Style TargetType="Button">
+                <Setter Property="FontSize" Value="24" />
+            </Style>
+        </StackPanel.Resources>
+
         <TextBlock Text="What do you want to do?" Style="{StaticResource TitleTextBlockStyle}" DockPanel.Dock="Top" />
         <TextBlock Text="なにをしたいか。" Style="{StaticResource TitleTextBlockStyle}" DockPanel.Dock="Top" />
+        
+        <Separator Height="30" DockPanel.Dock="Top" />
 
-        <UniformGrid Columns="1">
-            <UniformGrid.Resources>
-                <Style TargetType="Button">
-                    <Setter Property="FontSize" Value="24" />
-                </Style>
-            </UniformGrid.Resources>
-
+        <StackPanel>
+            <TextBlock Text="Hiragana" Style="{StaticResource SubTitleTextBlockStyle}" />
             <Button Content="Consult the Hiragana chart." Command="{Binding SetHiraganaChartViewModel}" />
             <Button Content="Translate Romaji to Hiragana." Command="{Binding SetRomajiToHiraganaQuizViewModel}" />
             <Button Content="Practise reading Hiragana." Command="{Binding SetHiraganaToRomajiQuizViewModel}" />
-            <Separator />
+        </StackPanel>
+        
+        <Separator Height="30" DockPanel.Dock="Top" />
+        
+        <StackPanel>
+            <TextBlock Text="Katakana" Style="{StaticResource SubTitleTextBlockStyle}" />
             <Button Content="Consult the Katakana chart." Command="{Binding SetKatakanaChartViewModel}" />
             <Button Content="Translate Romaji to Katakana." Command="{Binding SetRomajiToKatakanaQuizViewModel}" />
             <Button Content="Practise reading Katakana." Command="{Binding SetKatakanaToRomajiQuizViewModel}" />
-        </UniformGrid>
-    </DockPanel>
+        </StackPanel>
+    </StackPanel>
 </UserControl>
