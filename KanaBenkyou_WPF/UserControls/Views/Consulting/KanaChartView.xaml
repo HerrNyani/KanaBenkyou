@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HerrNyani.KanaBenkyou_WPF.UserControls.Views.Consulting"
+             xmlns:assisticant="clr-namespace:Assisticant;assembly=Assisticant.XAML"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <DockPanel>
@@ -12,7 +13,17 @@
             <Button Content="Return to start page" Command="{Binding ReturnToStartPage}" />
         </StackPanel>
 
-        <ListView ItemsSource="{Binding Kana}">
+        <Border BorderThickness="1" BorderBrush="Black" DockPanel.Dock="Bottom">
+            <ScrollViewer>
+                <ContentPresenter Content="{Binding KanaDetailViewModel}"  Margin="5">
+                    <ContentPresenter.ContentTemplateSelector>
+                        <assisticant:ViewSelector />
+                    </ContentPresenter.ContentTemplateSelector>
+                </ContentPresenter>
+            </ScrollViewer>
+        </Border>
+
+        <ListView ItemsSource="{Binding Kana}" SelectedItem="{Binding SelectedKana}" HorizontalAlignment="Center" BorderThickness="0" >
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <Grid>
@@ -51,5 +62,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+
     </DockPanel>
 </UserControl>

@@ -73,6 +73,8 @@ namespace HerrNyani.KanaBenkyou_WPF.ViewModels.Consulting
             }
         }
 
+        internal Kana Kana => _kana;
+
         public override int GetHashCode()
         {
             return _kana.GetHashCode();

@@ -14,8 +14,8 @@
 
         <TextBlock Text="What do you want to do?" Style="{StaticResource TitleTextBlockStyle}" DockPanel.Dock="Top" />
         <TextBlock Text="なにをしたいか。" Style="{StaticResource TitleTextBlockStyle}" DockPanel.Dock="Top" />
-        
-        <Separator Height="30" DockPanel.Dock="Top" />
+
+        <Separator Height="30" Background="Transparent" DockPanel.Dock="Top" />
 
         <StackPanel>
             <TextBlock Text="Hiragana" Style="{StaticResource SubTitleTextBlockStyle}" />
@@ -23,8 +23,8 @@
             <Button Content="Translate Romaji to Hiragana." Command="{Binding SetRomajiToHiraganaQuizViewModel}" />
             <Button Content="Practise reading Hiragana." Command="{Binding SetHiraganaToRomajiQuizViewModel}" />
         </StackPanel>
-        
-        <Separator Height="30" DockPanel.Dock="Top" />
+
+        <Separator Height="30" Background="Transparent" DockPanel.Dock="Top" />
         
         <StackPanel>
             <TextBlock Text="Katakana" Style="{StaticResource SubTitleTextBlockStyle}" />

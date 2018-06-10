@@ -19,5 +19,9 @@
     <DataTemplate DataType="{x:Type practisingViewmodels:KanaQuizViewModel}">
         <practisingViews:KanaQuizView />
     </DataTemplate>
+
+    <DataTemplate DataType="{x:Type consultingViewmodels:KanaDetailViewModel}">
+        <consultingViews:KanaDetailView />
+    </DataTemplate>
     
 </ResourceDictionary>

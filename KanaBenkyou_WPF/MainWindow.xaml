@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:HerrNyani.KanaBenkyou_WPF"
         xmlns:assisticant="clr-namespace:Assisticant;assembly=Assisticant.XAML"
         mc:Ignorable="d"
-        Title="Kana Benkyou - Hiragana and Katakana studying tool" Height="620" Width="800">
+        Title="Kana Benkyou - Hiragana and Katakana studying tool" Height="600" Width="960">
     <ContentPresenter Content="{Binding ActiveViewModel}">
         <ContentPresenter.ContentTemplateSelector>
             <assisticant:ViewSelector />

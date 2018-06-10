@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:HerrNyani.KanaBenkyou_WPF.UserControls.Views.Consulting"
-             mc:Ignorable="d" Width="60" Height="60">
+             mc:Ignorable="d" Width="60" Height="50">
     <DockPanel>
         <DockPanel.Resources>
             <Style TargetType="TextBlock">
@@ -13,6 +13,6 @@
         </DockPanel.Resources>
         
         <TextBlock Text="{Binding Romaji}" DockPanel.Dock="Bottom" />
-        <TextBlock Text="{Binding Character}" FontSize="36" />
+        <TextBlock Text="{Binding Character}" FontSize="30" />
     </DockPanel>
 </UserControl>

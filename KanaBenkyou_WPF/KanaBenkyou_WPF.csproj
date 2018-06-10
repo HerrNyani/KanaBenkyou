@@ -67,6 +67,9 @@
     <Compile Include="UserControls\Views\Consulting\KanaChartView.xaml.cs">
       <DependentUpon>KanaChartView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Views\Consulting\KanaDetailView.xaml.cs">
+      <DependentUpon>KanaDetailView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Views\Practising\KanaQuizView.xaml.cs">
       <DependentUpon>KanaQuizView.xaml</DependentUpon>
     </Compile>
@@ -75,6 +78,8 @@
     </Compile>
     <Compile Include="ViewModels\Consulting\KanaChartItemViewModel.cs" />
     <Compile Include="ViewModels\Consulting\KanaChartViewModel.cs" />
+    <Compile Include="ViewModels\Consulting\KanaDetailViewModel.cs" />
+    <Compile Include="ViewModels\Consulting\KanaPhoneticShiftItemViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\Practising\KanaQuizViewModel.cs" />
     <Compile Include="ViewModels\StartPageViewModel.cs" />
@@ -103,6 +108,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Views\Consulting\KanaChartView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Views\Consulting\KanaDetailView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

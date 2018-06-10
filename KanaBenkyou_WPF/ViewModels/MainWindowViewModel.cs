@@ -1,5 +1,4 @@
-﻿using System;
-using Assisticant;
+﻿using Assisticant;
 using Assisticant.Fields;
 using HerrNyani.KanaBenkyou.Models.Characters;
 using HerrNyani.KanaBenkyou_WPF.ViewModels.Consulting;
